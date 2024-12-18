@@ -1,23 +1,20 @@
-local success, UI = pcall(function()
-    return require(script.Parent.UI.ui) -- Load the UI module
-end)
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
 
-if success and UI then
-    local menu = UI:CreateMenu()
-    print("UI loaded successfully.")
-else
-    warn("Failed to load UI module.")
-    print("Error message: ", UI) -- This will print the error if the module loading fails
-    -- Retry loading after a small delay
-    wait(1)
-    local retrySuccess, retryUI = pcall(function()
-        return require(script.Parent.UI.ui) -- Retry loading the UI module
-    end)
-    if retrySuccess and retryUI then
-        local menu = retryUI:CreateMenu()
-        print("UI loaded successfully after retry.")
-    else
-        warn("Failed to load UI module again.")
-        print("Error message on second attempt: ", retryUI) -- This will show the second attempt error
-    end
-end
+local frame = Instance.new("Frame")
+frame.Parent = screenGui
+frame.BackgroundTransparency = 0.5
+frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+frame.Size = UDim2.new(0.5, 0, 0.5, 0)
+frame.Position = UDim2.new(0.25, 0, 0.25, 0)
+frame.BorderRadius = UDim.new(0, 15) -- Rounded corners with 15px radius
+
+local acrylicEffect = Instance.new("ImageLabel")
+acrylicEffect.Parent = frame
+acrylicEffect.BackgroundTransparency = 1
+acrylicEffect.Size = UDim2.new(1, 0, 1, 0)
+acrylicEffect.Image = "rbxassetid://7072771026" -- A suitable image for acrylic effect, you can replace this with a proper one
+acrylicEffect.ImageTransparency = 0.4
+
+-- Removed button as requested
