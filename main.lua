@@ -1,4 +1,4 @@
 local UI = require(script.Parent.UI.ui)
-local menu = UI:CreateMenu()
+local menu = UI:CreateMenu() 
 
 print("UI loaded successfully.")
