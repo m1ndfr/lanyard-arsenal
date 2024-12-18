@@ -7,7 +7,8 @@ if success and UI then
     print("UI loaded successfully.")
 else
     warn("Failed to load UI module.")
-    -- If loading the UI fails, attempt to load it again after a delay
+    print("Error message: ", UI) -- This will print the error if the module loading fails
+    -- Retry loading after a small delay
     wait(1)
     local retrySuccess, retryUI = pcall(function()
         return require(script.Parent.UI.ui) -- Retry loading the UI module
@@ -17,5 +18,6 @@ else
         print("UI loaded successfully after retry.")
     else
         warn("Failed to load UI module again.")
+        print("Error message on second attempt: ", retryUI) -- This will show the second attempt error
     end
 end
