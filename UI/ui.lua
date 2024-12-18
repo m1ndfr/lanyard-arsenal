@@ -5,18 +5,24 @@ function UI:CreateMenu()
     local MainFrame = Instance.new("Frame")
     local Title = Instance.new("TextLabel")
     local Button = Instance.new("TextButton")
+    local UIBlur = Instance.new("BlurEffect")
     
     -- Parent to PlayerGui (always ensures it has a valid parent)
     ScreenGui.Name = "CheatMenu"
     ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
     
-    -- Main Frame setup
+    -- Main Frame setup with acrylic blur effect
     MainFrame.Name = "MainFrame"
     MainFrame.Parent = ScreenGui
     MainFrame.Size = UDim2.new(0, 300, 0, 400)
     MainFrame.Position = UDim2.new(0.5, -150, 0.5, -200)
-    MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- black background
+    MainFrame.BackgroundTransparency = 0.5
     MainFrame.BorderSizePixel = 0
+    
+    -- Apply the BlurEffect (Acrylic Effect)
+    UIBlur.Parent = MainFrame
+    UIBlur.Size = 24 -- Adjust the intensity of the blur effect
     
     -- Title setup
     Title.Name = "Title"
